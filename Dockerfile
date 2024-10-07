@@ -2,7 +2,7 @@ FROM python:3.12
 
 RUN apt update -y
 RUN apt install cron -y
-RUN echo '*/30 * * * * /usr/src/app/clean.sh' >> /etc/crontab
+RUN echo '0 * * * * /usr/src/app/clean.sh' >> /etc/crontab
 
 WORKDIR /usr/src/app
 COPY requirements.txt ./
