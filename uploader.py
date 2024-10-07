@@ -68,7 +68,7 @@ def main():
 
     # if this is a file, print it out
     if full_path.is_file():
-        return send_file(full_path.name)
+        return send_file(full_path)
 
     if request.method == 'POST':
         if 'dirname' in request.form:
