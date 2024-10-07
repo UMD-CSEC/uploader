@@ -2,7 +2,7 @@ import os
 import time
 from uuid import uuid4
 from functools import wraps
-from flask import Flask, render_template, session, request, redirect, url_for
+from flask import Flask, render_template, session, request, redirect, url_for, send_file
 from werkzeug.utils import secure_filename
 from pathlib import Path
 
@@ -68,7 +68,7 @@ def main():
 
     # if this is a file, print it out
     if full_path.is_file():
-        return render_template("file.html", name=full_path.name, contents=full_path.read_text())
+        return send_file(full_path.name)
 
     if request.method == 'POST':
         if 'dirname' in request.form:
