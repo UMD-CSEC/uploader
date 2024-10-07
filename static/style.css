@@ -1,0 +1,92 @@
+body {
+    background-color: whitesmoke;
+}
+
+#view {
+    display: flex;
+    flex-direction: column;
+}
+
+#content {
+    width: 50%;
+    margin: 0 auto;
+    font-family: "Roboto", sans-serif;
+}
+
+#prev {
+    display: block;
+    margin-bottom: 1em;
+}
+
+.file-listing {
+    display: flex;
+    flex-direction: column;
+    font-family: "Courier New", monospace;
+    overflow-wrap: break-word;
+    word-break: break-all;
+}
+
+.file {
+    display: flex;
+    flex-direction: row;
+    background-color: gainsboro;
+}
+
+.file-dark {
+    display: flex;
+    flex-direction: row;
+    background-color: silver;
+}
+
+.type {
+    flex: 0 7%;
+    box-sizing: border-box;
+    padding-left: 3%;
+}
+
+.filename {
+    flex: 0 34%;
+    box-sizing: border-box;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.date {
+    flex: 0 33%;
+}
+
+.size {
+    flex: 0 26%;
+    text-align: right;
+    padding-right: 5%;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    font-family: "Roboto" sans-serif;
+    background-color: darkgray;
+    font-weight: bold;
+}
+
+.type-header {
+    flex: 0 7%;
+    text-align: center;
+}
+
+.filename-header {
+    flex: 0 34%;
+    text-align: center;
+}
+
+.date-header {
+    flex: 0 33%;
+    text-align: center;
+}
+
+.size-header {
+    flex: 0 26%;
+    text-align: center;
+}

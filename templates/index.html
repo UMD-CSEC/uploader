@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Uploader</title>
+        <link rel=stylesheet href={{ url_for('static', filename="style.css") }} />
+    </head>
+    <body>
+        <div id="content">
+            <h1>Files</h1>
+
+            <div id="view">
+                <div class="file-listing">
+                    <div class="header">
+                        <p class="type-header">Type </p>
+                        <p class="filename-header">Filename</p>
+                        <p class="date-header">Date Modified</p>
+                        <p class="size-header">Size </p>
+                    </div>
+                    <div class="file">
+                        <p class="type">D</p>
+                        <a class="filename" href="/?path={{ prev | path_normalize }}" id=prev>..</a>
+                        <p class="date"></p>
+                        <p class="size"></p>
+                    </div>
+                    {% for file in files %}
+                    {% if loop.index0 % 2 == 0 %}
+                    <div class="file-dark">
+                    {% else %}
+                    <div class="file">
+                    {% endif %}
+                        {% if file[2] %}
+                        <p class="type">D</p>
+                        {% else %}
+                        <p class="type">.</p>
+                        {% endif %}
+                        <a class="filename" href="/?path={{ (path + "/" + file[0]) | path_normalize}}">{{ file[0] }}</a>
+                        <p class="date">{{ file[1].st_mtime | ctime }}</p>
+                        <p class="size">{{ file[1].st_size | hsize }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <h3>Upload File</h3>
+                <form method=post enctype=multipart/form-data>
+                    <input type=file name=file>
+                    <input type=submit value=Upload>
+                </form>
+
+                <h3>Create Directory</h3>
+                <form method=post enctype=multipart/form-data>
+                    <input type=text name=dirname placeholder="name">
+                    <input type=submit value=Create>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
